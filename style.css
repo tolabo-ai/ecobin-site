@@ -7,6 +7,10 @@ body {
   text-align: center;
 }
 
+html {
+  scroll-behavior: smooth; /* smooth scrolling for Get Started button */
+}
+
 /* NAVIGATION */
 nav {
   background-color: #2ea44f;
@@ -52,19 +56,15 @@ i {
   margin-right: 8px;
 }
 
-/* RECYCLE ICON ANIMATION */
+/* SPINNING RECYCLE ICON */
 .rotate {
   display: inline-block;
   animation: spin 2.5s linear infinite;
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* FOOTER */
@@ -72,4 +72,53 @@ footer {
   background-color: #d9f2d9;
   padding: 20px;
   font-size: 14px;
+}
+
+/* LOGIN MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #e6f9e6;
+  margin: 10% auto;
+  padding: 20px;
+  border: 2px solid #2ea44f;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.modal input {
+  padding: 10px;
+  margin: 8px 0;
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid #2ea44f;
+}
+
+.modal button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3cb371;
+  color: white;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: #2e8b57;
+}
+
+#closeBtn {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
 }
