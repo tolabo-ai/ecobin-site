@@ -1,0 +1,75 @@
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e6f9e6;
+  color: #044d04;
+  text-align: center;
+}
+
+/* NAVIGATION */
+nav {
+  background-color: #2ea44f;
+  padding: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* SECTIONS */
+.main-content {
+  padding: 50px 20px;
+}
+
+/* BUTTON */
+.button {
+  background-color: #3cb371;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  display: inline-block;
+  margin-top: 25px;
+}
+
+.button:hover {
+  background-color: #2e8b57;
+}
+
+/* ICON STYLING */
+i {
+  color: #2ea44f;
+  margin-right: 8px;
+}
+
+/* RECYCLE ICON ANIMATION */
+.rotate {
+  display: inline-block;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* FOOTER */
+footer {
+  background-color: #d9f2d9;
+  padding: 20px;
+  font-size: 14px;
+}
