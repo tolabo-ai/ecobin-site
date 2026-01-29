@@ -87,11 +87,12 @@
   </div>
 </div>
 
-<!-- Firebase SDK & Login JS -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.6.1/firebase-auth-compat.js"></script>
 
+<!-- Firebase login JS -->
+<script>
   // Replace with YOUR Firebase config
   const firebaseConfig = {
     apiKey: "YOUR_API_KEY",
@@ -102,8 +103,9 @@
     appId: "YOUR_APP_ID"
   };
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
 
   const modal = document.getElementById('loginModal');
   const closeBtn = document.getElementById('closeBtn');
@@ -125,7 +127,7 @@
 
   // Sign Up
   signupBtn.addEventListener('click', () => {
-    createUserWithEmailAndPassword(auth, emailInput.value, passInput.value)
+    auth.createUserWithEmailAndPassword(emailInput.value, passInput.value)
       .then(userCredential => {
         welcomeMsg.textContent = `Welcome, ${userCredential.user.email}!`;
         logoutBtn.style.display = 'inline-block';
@@ -135,7 +137,7 @@
 
   // Login
   loginBtn.addEventListener('click', () => {
-    signInWithEmailAndPassword(auth, emailInput.value, passInput.value)
+    auth.signInWithEmailAndPassword(emailInput.value, passInput.value)
       .then(userCredential => {
         welcomeMsg.textContent = `Welcome back, ${userCredential.user.email}!`;
         logoutBtn.style.display = 'inline-block';
@@ -145,14 +147,14 @@
 
   // Logout
   logoutBtn.addEventListener('click', () => {
-    signOut(auth).then(() => {
+    auth.signOut().then(() => {
       welcomeMsg.textContent = '';
       logoutBtn.style.display = 'none';
     });
   });
 
   // Show welcome if user is already logged in
-  onAuthStateChanged(auth, user => {
+  auth.onAuthStateChanged(user => {
     if(user){
       welcomeMsg.textContent = `Welcome, ${user.email}!`;
       logoutBtn.style.display = 'inline-block';
