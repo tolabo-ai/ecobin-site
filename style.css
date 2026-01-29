@@ -8,7 +8,7 @@ body {
 }
 
 html {
-  scroll-behavior: smooth; /* smooth scrolling for Get Started button */
+  scroll-behavior: smooth;
 }
 
 /* NAVIGATION */
